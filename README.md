@@ -1,6 +1,6 @@
 # OrderHub — Order Management REST API
 
-[CI](https://github.com/Ramanna1218/orderhub/actions/workflows/ci.yml/badge.svg)
+[![CI](https://github.com/Ramanna1218/orderhub/actions/workflows/ci.yml/badge.svg)](https://github.com/Ramanna1218/orderhub/actions)
 
 A production-style REST API for managing **products, customers and orders**, built with
 **Java 21, Spring Boot 3, Spring Security (JWT), Spring Data JPA, PostgreSQL, Flyway, Docker** and deployed on **AWS EC2**.
