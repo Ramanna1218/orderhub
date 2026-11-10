@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: orderhub
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/orderhub}
+    username: ${DB_USERNAME:orderhub}
+    password: ${DB_PASSWORD:orderhub}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: none            # schema is owned by Flyway migrations
+    properties:
+      hibernate:
+        default_batch_fetch_size: 50
+  flyway:
+    enabled: true
+  data:
+    web:
+      pageable:
+        max-page-size: 100
+
+app:
+  jwt:
+    # Must be at least 32 bytes. Always override in real deployments.
+    secret: ${JWT_SECRET:local-dev-secret-change-me-0123456789abcdef}
+    expiration-minutes: ${JWT_EXPIRATION_MINUTES:60}
+  admin:
+    # Seeded on startup if the account does not exist yet.
+    email: ${ADMIN_EMAIL:admin@orderhub.local}
+    password: ${ADMIN_PASSWORD:Admin@12345}
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: method
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
