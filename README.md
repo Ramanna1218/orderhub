@@ -3,9 +3,9 @@
 [![CI](https://github.com/Ramanna1218/orderhub/actions/workflows/ci.yml/badge.svg)](https://github.com/Ramanna1218/orderhub/actions)
 
 A production-style REST API for managing **products, customers and orders**, built with
-**Java 21, Spring Boot 3, Spring Security (JWT), Spring Data JPA, PostgreSQL, Flyway, Docker** and deployed on **AWS EC2**.
+**Java 21, Spring Boot 3, Spring Security (JWT), Spring Data JPA, PostgreSQL, Flyway, Docker**, deployed on **Render** with **Neon PostgreSQL**.
 
-> Live API docs: `http://<your-ec2-ip>:8080/swagger-ui.html`
+> 🚀 **Live API docs:** https://orderhub-rpv4.onrender.com/swagger-ui.html (free tier: first load may take 2–3 min to wake up)
 
 ---
 
@@ -128,11 +128,12 @@ mvn test       # unit + integration (integration tests need Docker; they skip wi
 - `ProductServiceTest`, `JwtServiceTest`, `OrderStatusTest`: business rules, token signing/expiry/tampering, lifecycle rules
 - `OrderHubIntegrationTest`: real HTTP + JWT + PostgreSQL flow covering 201/400/401/403/409 paths
 
-## Deploy to AWS EC2
+## Deployment
 
-See **[docs/DEPLOY_AWS.md](docs/DEPLOY_AWS.md)**. It takes about 15 minutes and fits the AWS Free Tier.
+Live on **Render** (Docker web service) with **Neon** serverless PostgreSQL.
+To self-host on AWS EC2 instead, see **[docs/DEPLOY_AWS.md](docs/DEPLOY_AWS.md)**.
 
 ## Tech stack
 
 Java 21 · Spring Boot 3.3 · Spring Security 6 · jjwt · Spring Data JPA / Hibernate · PostgreSQL 16 · Flyway ·
-springdoc-openapi · JUnit 5 · Mockito · Testcontainers · Docker / Docker Compose · GitHub Actions · AWS EC2
+springdoc-openapi · JUnit 5 · Mockito · Testcontainers · Docker / Docker Compose · GitHub Actions · Render · Neon
